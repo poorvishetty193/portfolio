@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+bower_components/
+
+# Builds and caches
+dist/
+build/
+.cache/
+.parcel-cache/
+.tmp/
+.next/
+out/
+coverage/
+
+# Logs and reports
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors/IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.iml
+
+# Misc
+.sass-cache/
+*.local
+*.swp
+*.swo
