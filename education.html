@@ -3,46 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Education · YourName</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Poorvi Shetty · Portfolio</title>
+
+  <!-- Icons and fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/education.css" />
+
+  <!-- jQuery + main JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script defer src="assets/js/main.js"></script>
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="index.html">YourName</a>
+    <a class="logo" href="index.html">Poorvi Shetty</a>
     <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="skills.html" class="nav-link">Skills</a>
-      <a href="education.html" class="nav-link active">Education</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="index.html" >Home</a>
+      <a href="about.html" >About</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Open Menu">&#9776;</button>
+    <button class="nav-toggle" aria-label="Open Menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
-  <main class="section">
-    <h1>Education</h1>
-    <div class="timeline">
-      <div class="t-item">
-        <span class="t-year">2022–2026</span>
-        <div class="t-content">
-          <h3>B.E. in Computer Science</h3>
-          <p>University/Institute · Coursework: DS, Algorithms, DBMS, Networks.</p>
-        </div>
+  <main class="section" id="education">
+  <h1 class="section-title">Education</h1>
+
+  <!-- Timeline wrapper -->
+  <section class="edu-timeline" aria-label="Education timeline">
+    <!-- Item -->
+    <article class="edu-item">
+      <div class="edu-badge">2023–2027</div>
+      <div class="edu-card">
+        <header class="edu-head">
+          <h3 class="edu-title">B.E. in Computer Science</h3>
+          <span class="edu-meta">CGPA: 9.2/10 • Karnataka, A. J. Institute Of Engineering and Technology.</span>
+        </header>
+        <ul class="edu-points">
+          <li>Coursework: Data Structures, Algorithms, DBMS, OS, Networks, Web Engineering</li>
+          <li>Projects: React dashboard, REST APIs with Node/Express, MongoDB aggregation</li>
+          <li>Clubs: National Service Scheme</li>
+        </ul>
+        <footer class="edu-tags">
+          <span>React</span><span>Node</span><span>DBMS</span><span>Python</span>
+        </footer>
       </div>
-      <div class="t-item">
-        <span class="t-year">Certifications</span>
-        <div class="t-content">
-          <h3>Azure / Cloud</h3>
-          <p>Relevant cloud and security certifications in progress/completed.</p>
-        </div>
+    </article>
+
+    <!-- Item -->
+    <article class="edu-item">
+      <div class="edu-badge">Class 12</div>
+      <div class="edu-card">
+        <header class="edu-head">
+          <h3 class="edu-title">Pre-University Education</h3>
+          <span class="edu-meta">PCM • Distinction • 95.17% • Govinda Dasa PU College</span>
+        </header>
+        <ul class="edu-points">
+          <li>Strengths: Mathematics, Computer Science, chemistry and Physics.</li>
+          <li>Learnt basic HTML, CSS and C++</li>
+        </ul>
+        <footer class="edu-tags">
+          <span>Math</span><span>CS</span><span>Physics</span>
+        </footer>
       </div>
-    </div>
-  </main>
+    </article>
+
+    <!-- Item -->
+    <article class="edu-item">
+      <div class="edu-badge">Class 10</div>
+      <div class="edu-card">
+        <header class="edu-head">
+          <h3 class="edu-title">High School </h3>
+          <span class="edu-meta">Merit • 97.6% • Holy Family English Medium School</span>
+        </header>
+        <ul class="edu-points">
+          <li>Learnt basic Office Tools.</li>          
+        </ul>
+        <footer class="edu-tags">
+          <span>Foundations</span><span>Logic</span><span>Productivity</span>
+        </footer>
+      </div>
+    </article>   
+    
+  </section>
+</main>
+
 
   <footer id="footer" class="site-footer">
-    <p>&copy; <span id="year"></span> YourName · Built with HTML, CSS, JS, and jQuery</p>
+    <p>&copy; <span id="year"></span> Poorvi Shetty · Built with ❤️ for the web.</p>
   </footer>
 </body>
 </html>

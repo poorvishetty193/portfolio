@@ -231,3 +231,38 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     if (e.key === 'ArrowLeft') prev();
   }, {passive:true});
 })();
+
+// Reveal education items on scroll
+(function(){
+  const items = document.querySelectorAll('.edu-item');
+  if (!items.length) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('appear'); io.unobserve(e.target);} });
+  }, { threshold: 0.2 });
+  items.forEach(i => io.observe(i));
+})();
+
+
+$(function(){
+  $('#contactForm').on('submit', function(e){
+    const name = $('#name'), email = $('#email'), subject = $('#subject'), message = $('#message');
+    let ok = true;
+
+    // Reset errors
+    $('.error').text('');
+
+    if(!name.val().trim()){ $('#err-name').text('Please enter your name.'); ok = false; }
+    if(!email[0].checkValidity()){ $('#err-email').text('Please enter a valid email.'); ok = false; }
+    if(!subject.val().trim()){ $('#err-subject').text('Please add a subject.'); ok = false; }
+    if(!message.val().trim()){ $('#err-message').text('Please write a message.'); ok = false; }
+
+    if(!ok){ e.preventDefault(); return; }
+
+    e.preventDefault();
+    $('#formStatus').text('Sending...');
+    setTimeout(function(){
+      $('#formStatus').text('Thanks! Your message has been sent.');
+      $('#contactForm')[0].reset();
+    }, 800);
+  });
+});
