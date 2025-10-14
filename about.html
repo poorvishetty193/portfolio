@@ -3,48 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About · YourName</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Poorvi Shetty · Portfolio</title>
+
+  <!-- Icons and fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/about.css" />
+
+  <!-- jQuery + main JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script defer src="assets/js/main.js"></script>
+  
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="index.html">YourName</a>
+  <header>
+    <a class="logo" href="index.html">Poorvi Shetty</a>
     <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link active">About</a>
-      <a href="skills.html" class="nav-link">Skills</a>
-      <a href="education.html" class="nav-link">Education</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="index.html" >Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Open Menu">&#9776;</button>
+    <button class="nav-toggle" aria-label="Open Menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
-  <main class="section">
-    <h1>About</h1>
-    <div class="grid about-grid">
-      <div>
-        <p>Short bio describing background, interests, and mission statement.</p>
-        <ul class="list">
-          <li>Specialty: Frontend (React), Backend (Node/Express)</li>
-          <li>Interests: Cloud, ML, Networking</li>
-          <li>Location: City, Country</li>
-        </ul>
-      </div>
-      <aside class="about-aside">
-        <h3>Highlights</h3>
-        <ul class="list">
-          <li>Built dashboards and CRUD apps</li>
-          <li>Deployed to cloud platforms</li>
-          <li>Open-source contributions</li>
-        </ul>
-      </aside>
+  <main class="section" id="about">
+  <h1 >About Me</h1>
+  <div class="grid about-grid">
+    <div class="about-image">
+      <img src="assets/img/poo.png" alt="Poorvi Shetty">
     </div>
-  </main>
+
+    <div class="about-text">
+      <h2>Designing Is My Passion</h2>
+      <p>
+  I’m a passionate <span class="highlight">Frontend Developer</span> who loves transforming creative concepts into 
+  elegant, interactive, and user-friendly digital experiences. I focus on writing clean, efficient code and building 
+  responsive designs that look great on any device.
+</p>
+
+<p>
+  I enjoy combining <span class="highlight">creativity</span> with <span class="highlight">logical problem-solving</span> 
+  to craft websites that are both beautiful and functional. My aim is to create seamless interfaces that enhance 
+  user engagement while maintaining performance and accessibility.
+</p>
+      <ul class="list">
+        <li><strong>Specialty:</strong> Frontend Development (React, HTML, CSS, JavaScript)</li>
+  <li><strong>Interest:</strong> UI/UX Design, Web Animations, and Creative Coding</li>
+  <li><strong>Tools & Frameworks:</strong> React, Tailwind CSS, Bootstrap, Git, Figma</li>
+  <li><strong>Current Focus:</strong> Building interactive, responsive web applications and exploring modern frontend libraries</li>
+  <li><strong>Location:</strong> India</li>
+      </ul>
+      <a href="assets/poorvi-shetty-cv.pdf" class="download-btn" download>Download CV</a>
+    </div>
+  </div>
+</main>
+
 
   <footer id="footer" class="site-footer">
-    <p>&copy; <span id="year"></span> YourName · Built with HTML, CSS, JS, and jQuery</p>
+    <p>&copy; <span id="year"></span> Poorvi Shetty · Built with ❤️ for the web.</p>
   </footer>
 </body>
 </html>
