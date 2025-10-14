@@ -37,3 +37,11 @@ $(function(){
     }, 800);
   });
 });
+
+$(document).ready(function () {
+  $(".nav-toggle").click(function () {
+    $(".nav").toggleClass("active");
+    $(this).find("i").toggleClass("fa-bars fa-xmark"); // Switch between bars and X
+  });
+});
+
