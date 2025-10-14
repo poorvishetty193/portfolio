@@ -231,3 +231,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     if (e.key === 'ArrowLeft') prev();
   }, {passive:true});
 })();
+
+// Reveal education items on scroll
+(function(){
+  const items = document.querySelectorAll('.edu-item');
+  if (!items.length) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('appear'); io.unobserve(e.target);} });
+  }, { threshold: 0.2 });
+  items.forEach(i => io.observe(i));
+})();
