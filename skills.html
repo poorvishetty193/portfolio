@@ -1,52 +1,178 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Skills · YourName</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Poorvi Shetty · Portfolio</title>
+
+  <!-- Icons and fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/skills.css"/>
+
+  <!-- jQuery + main JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="index.html">YourName</a>
+    <a class="logo" href="index.html">Poorvi Shetty</a>
     <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="skills.html" class="nav-link active">Skills</a>
-      <a href="education.html" class="nav-link">Education</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <button class="nav-toggle" aria-label="Open Menu">&#9776;</button>
   </header>
 
-  <main class="section">
-    <h1>Skills</h1>
-    <div class="grid skills-grid">
-      <div class="skill">
-        <h3>Frontend</h3>
-        <ul class="tags">
-          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li>
-        </ul>
-      </div>
-      <div class="skill">
-        <h3>Backend</h3>
-        <ul class="tags">
-          <li>Node</li><li>Express</li><li>MongoDB</li><li>REST</li>
-        </ul>
-      </div>
-      <div class="skill">
-        <h3>Cloud & Tools</h3>
-        <ul class="tags">
-          <li>Azure</li><li>Docker</li><li>Git</li><li>CI/CD</li>
-        </ul>
+  <main class="section" id="skills">
+    <h1 class="section-title">
+      My Skills
+      <span class="title-accent"></span>
+    </h1>
+
+    <!-- NEW: Reference-style two-column section (left copy + right big counters) -->
+    <div class="skills-wrap">
+      <!-- Left column -->
+      <div class="skills-left">
+        <h2 class="skills-lead">Skills Reflects Our Knowledge</h2>
+        <p class="skills-desc">
+          Crafting responsive, accessible interfaces and robust APIs with a strong focus on performance and UX clarity.
+        </p>
+        <p class="skills-desc">
+          Comfortable across frontend stacks and delivery pipelines, blending design systems with modern tooling.
+        </p>
+
+        <p class="skills-desc">
+          Passionate about continuous learning and applying best practices to build scalable, maintainable codebases.
+        </p> 
+      </div>  
+
+      <!-- Right column: big counters (kept on one line) -->
+      <div class="skills-right">
+        <div class="skill-big">
+          <span class="skill-name">HTML</span>
+          <span class="skill-line"><span class="skill-val" data-target="90">0</span><span class="skill-pct">%</span></span>
+        </div>
+        <div class="skill-big">
+          <span class="skill-name">CSS</span>
+          <span class="skill-line"><span class="skill-val" data-target="80">0</span><span class="skill-pct">%</span></span>
+        </div>
+        <div class="skill-big">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-line"><span class="skill-val" data-target="70">0</span><span class="skill-pct">%</span></span>
+        </div>
+        <div class="skill-big">
+          <span class="skill-name">React</span>
+          <span class="skill-line"><span class="skill-val" data-target="60">0</span><span class="skill-pct">%</span></span>
+        </div>
       </div>
     </div>
+
+    <!-- YOUR ORIGINAL FEATURE: tag/grid list remains intact below -->
+    <section class="feature-block">
+      <h2 class="feature-title">Tech Stack</h2>
+      <div class="grid skills-grid">
+        <div class="skill">
+          <h3>Frontend</h3>
+          <ul class="tags">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h3>Backend</h3>
+          <ul class="tags">
+            <li>Node</li><li>Express</li><li>MongoDB</li><li>REST</li>
+          </ul>
+        </div>
+        <div class="skill">
+          <h3>Cloud & Tools</h3>
+          <ul class="tags">
+            <li>GitHub</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
+
+  <main class="section" id="skills">
+    <h1 class="section-title">
+      My Certificates
+      <span class="title-accent"></span>
+    </h1>
+
+    <!-- Certificates Carousel -->
+<section class="certs">
+  <div class="carousel" id="certCarousel" aria-label="Certificates">
+    <button class="car-btn prev" aria-label="Previous">&#10094;</button>
+
+    <div class="car-track">
+      <!-- Each slide -->
+      <article class="slide">
+        <img src="assets/img/angular.png" alt="Angular certificate">
+        <div class="caption">
+          <h3>Angular Web Developer Certification</h3>
+          <p>A certification that validates my skills in building dynamic, responsive web applications using Angular framework.</p>
+        </div>
+      </article>
+
+      <article class="slide">
+        <img src="assets/img/css3.png" alt="CSS3 certificate">
+        <div class="caption">
+          <h3>CSS3 Certification</h3>
+          <p>A certification that demonstrates proficiency in designing and styling modern, responsive websites using CSS3.</p>
+        </div>
+      </article>
+
+      <article class="slide">
+        <img src="assets/img/html5.png" alt="Html5 certificate">
+        <div class="caption">
+          <h3>HTML5 Certification</h3>
+          <p>A certification that validates my expertise in structuring and building modern, semantic, and interactive web pages using HTML5.</p>
+        </div>
+      </article>
+
+      <article class="slide">
+        <img src="assets/img/javascript.png" alt="JavaScript certificate">
+        <div class="caption">
+          <h3>JavaScript certificate</h3>
+          <p>A certification that verifies my ability to create dynamic, interactive, and functional web applications using JavaScript.</p>
+        </div>
+      </article>
+
+      <article class="slide">
+        <img src="assets/img/websitecreation.png" alt="website creation certificate">
+        <div class="caption">
+          <h3>website creation certificate</h3>
+          <p>A certification that demonstrates my skills in designing, developing, and deploying fully functional websites.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Lightbox for certificate images -->
+<div id="lightbox" class="lb" aria-hidden="true" role="dialog" aria-label="Certificate preview">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" aria-label="Previous">&#10094;</button>
+  <img class="lb-img" alt="Certificate preview"/>
+  <button class="lb-nav lb-next" aria-label="Next">&#10095;</button>
+</div>
+
+
+    <button class="car-btn next" aria-label="Next">&#10095;</button>
+  </div>
+
+  <!-- Dots -->
+  <div class="car-dots" id="certDots" aria-label="Carousel pagination"></div>
+  
+</section>
+    
+  </main>
+
+
   <footer id="footer" class="site-footer">
-    <p>&copy; <span id="year"></span> YourName · Built with HTML, CSS, JS, and jQuery</p>
+    <p>&copy; <span id="year"></span> Poorvi Shetty · Built with ❤️ for the web.</p>
   </footer>
 </body>
 </html>
