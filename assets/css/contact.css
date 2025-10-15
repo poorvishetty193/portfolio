@@ -142,3 +142,140 @@ input:focus, textarea:focus{ border-color:var(--pink); box-shadow:0 0 0 3px rgba
 .site-footer{ background:#0f0f0f; color:var(--pink-soft); text-align:center; padding:2rem 0; border-top:1px solid var(--pink); font-size:1.4rem; margin-top:5rem; }
 .site-footer span{ color:var(--pink); }
 .site-footer p:hover{ color:#fff; transition:.3s ease; }
+
+
+/* ======== Mobile-first polish (phones) ======== */
+@media (max-width: 576px) {
+  /* Base scale and header height */
+  html { font-size: 55%; } /* Improves readability and tap targets [attached_file:1] */
+  :root { --header-h: 7.5rem; } /* Slightly taller mobile header allowance [attached_file:1] */
+
+  /* Header */
+  header { padding: 1.2rem 5%; } /* Reduce side padding to gain content width [attached_file:1] */
+  .logo { font-size: 2.4rem; } /* Prevent overflow/wrapping on small widths [attached_file:1] */
+
+  /* Navigation */
+  .nav-toggle { font-size: 3rem; } /* Larger tap target [attached_file:1] */
+  .nav {
+    width: 100%;
+    right: -100%;
+    padding: 2.2rem 1.6rem;
+    border-left: none;
+    border-bottom: 2px solid var(--pink);
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--panel-2);
+  } /* Full-width, stable slide-down panel [attached_file:1] */
+  .nav a {
+    font-size: 1.8rem;
+    margin: 1.2rem 0;
+  } /* Comfortable list rhythm [attached_file:1] */
+  .nav.active { right: 0; } /* Keep slide behavior [attached_file:1] */
+
+  /* Sections and headings */
+  .section { padding: 4.2rem 5% 4.6rem; } /* Compact but airy spacing [attached_file:1] */
+  .section h1 { font-size: 3rem; margin-bottom: 1rem; } /* Avoid oversized titles [attached_file:1] }
+  .lead { font-size: 1.5rem; margin-bottom: 2.4rem; } /* Balance with title scale [attached_file:1] */
+
+  /* Contact layout */
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 0.2rem;
+  } /* Single column, reduced gaps [attached_file:1] */
+
+  /* Info panel */
+  .contact-info {
+    padding: 1.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 14px rgba(255,105,180,.14);
+  } /* Softer shadow on mobile [attached_file:1] */
+  .contact-info h2 { font-size: 2.2rem; } /* Scaled down heading [attached_file:1] */
+  .contact-info p { font-size: 1.35rem; margin-bottom: 1.2rem; } /* Tighter text rhythm [attached_file:1] }
+  .info-list { gap: .6rem; margin: 1.2rem 0; } /* Reduce vertical stretch [attached_file:1] */
+  .info-list li { font-size: 1.35rem; gap: .8rem; } /* Fit long labels/values [attached_file:1] */
+  .info-list i { width: 16px; } /* Icon fits narrow columns [attached_file:1] */
+
+  /* Social icons */
+  .socials { gap: .8rem; margin-top: .6rem; } /* Denser cluster [attached_file:1] */
+  .socials a {
+    width: 3.6rem; height: 3.6rem; font-size: 1.8rem; margin: 1rem .8rem 2rem 0;
+  } /* Thumb-friendly, space-saving size [attached_file:1] */
+
+  /* Form card */
+  .form {
+    padding: 1.6rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 12px rgba(255,105,180,.12);
+  } /* Softer rim to reduce glow [attached_file:1] */
+  .field { gap: .5rem; margin-bottom: 1.2rem; } /* Tighter controls [attached_file:1] */
+  label { font-size: 1.35rem; } /* Readable labels without wrapping [attached_file:1] }
+  input, textarea {
+    font-size: 1.5rem;
+    padding: 1.1rem 1.3rem;
+  } /* Stable input height [attached_file:1] */
+  .error { font-size: 1.15rem; min-height: 1.15rem; } /* Subtle helper text [attached_file:1] */
+
+  /* Buttons row */
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 1rem;
+  } /* Single-column actions for easy tapping [attached_file:1] */
+  .btn {
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1.1rem 1.6rem;
+  } /* Full-width CTAs [attached_file:1] */
+
+  /* Status text */
+  .status { font-size: 1.3rem; } /* Match surrounding text scale [attached_file:1] */
+
+  /* Optional banner */
+  .map-placeholder {
+    padding: 1.6rem;
+    margin: 2.4rem auto 0;
+    border-radius: 1rem;
+  } /* Harmonize with other cards [attached_file:1] */
+
+  /* Footer */
+  .site-footer { padding: 1.6rem 5%; font-size: 1.3rem; margin-top: 3.6rem; } /* Compact footer [attached_file:1] */
+
+  /* Safe-area and tap polish */
+  a, button { -webkit-tap-highlight-color: transparent; } /* Reduce tap flash [attached_file:1] */
+  body { padding-bottom: env(safe-area-inset-bottom); } /* Respect bottom notch [attached_file:1] */
+
+  /* Reduce motion for low-end devices */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  } /* Performance-friendly experience [attached_file:1] */
+}
+
+/* ======== Small tablets / large phones ======== */
+@media (min-width: 577px) and (max-width: 768px) {
+  html { font-size: 58%; } /* Gradual type scale [attached_file:1] */
+  header { padding: 1.2rem 6%; } /* Slightly wider gutters [attached_file:1] */
+  .section { padding: 4.6rem 6% 4.8rem; } /* Consistent vertical rhythm [attached_file:1] }
+  .contact-wrap { gap: 2.4rem; } /* More breathing space than phones [attached_file:1] */
+  .contact-info h2 { font-size: 2.4rem; } /* Step up scale [attached_file:1] */
+  .socials a { width: 3.8rem; height: 3.8rem; } /* Slightly larger taps [attached_file:1] }
+  .btn { font-size: 1.55rem; } /* CTA prominence [attached_file:1] */
+}
+
+/* Make fixed-header safe globally */
+.section {
+  padding-top: calc(var(--header-h) + 1.2rem); /* was 5rem top */
+}
+
+/* Contact-specific nudge (if still tight) */
+#contact.section {
+  padding-top: calc(var(--header-h) + 2rem);
+}
+
+/* Mobile: header is visually taller (logo + toggle), so add more */
+@media (max-width: 576px) {
+  :root { --header-h: 7.5rem; }
+  .section { padding-top: calc(var(--header-h) + 1.6rem); }
+  #contact.section { padding-top: calc(var(--header-h) + 2.4rem); }
+}

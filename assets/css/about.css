@@ -100,3 +100,70 @@ header {
   /* If the mobile header is taller when the menu opens, give a little more top padding */
   #about.section { padding-top: calc(var(--header-h) + 2rem); }
 }
+
+
+/* ========= Mobile enhancements ========= */
+@media (max-width: 576px) {
+  html { font-size: 55%; } /* Slightly larger tap targets and readability [attached_file:1] */
+
+  /* Header */
+  :root { --header-h: 7.5rem; } /* Account for tighter mobile spacing [attached_file:1] */
+  header { padding: 1.2rem 5%; } /* Reduce side padding for space [attached_file:1] */
+  .logo { font-size: 2.4rem; } /* Prevent wrapping and overflow [attached_file:1] }
+
+  /* Hamburger + Nav */
+  .nav-toggle { font-size: 3rem; } /* Easier to tap [attached_file:1] */
+  .nav {
+    width: 100%;
+    right: -100%;
+    padding: 2.4rem 2rem;
+    gap: 0.4rem;
+  } /* Full-width slide-in for stability [attached_file:1] */
+  .nav a {
+    font-size: 1.8rem;
+    margin: 1.2rem 0;
+  } /* Consistent rhythm [attached_file:1] */
+  .nav.active { right: 0; } /* Keep slide behavior [attached_file:1] */
+
+  /* Sections */
+  .section { padding: 4.2rem 5% 4.6rem; } /* Comfortable vertical rhythm [attached_file:1] */
+  #about.section { padding-top: calc(var(--header-h) + 1.6rem); } /* Fixed-header safe [attached_file:1] */
+  .section h1 { font-size: 3rem; margin-bottom: 3rem; } /* Title sizing [attached_file:1] */
+
+  /* About */
+  .about-grid { gap: 3rem; } /* Tighter gap on single column [attached_file:1] */
+  .about-image img {
+    width: 58vw;
+    max-width: 240px;
+  } /* Cap size for small screens [attached_file:1] */
+  .about-text h2 { font-size: 2.1rem; } /* Balance with title [attached_file:1] */
+  .about-text p { font-size: 1.5rem; line-height: 1.75; } /* Readability [attached_file:1] */
+  .list li { font-size: 1.45rem; } /* Subtext scale [attached_file:1] }
+  .download-btn {
+    padding: 1.1rem 2.2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 320px;
+  } /* Thumb-friendly CTA [attached_file:1] */
+
+  /* Footer */
+  .site-footer { padding: 1.6rem 5%; font-size: 1.3rem; } /* Compact footer [attached_file:1] */
+
+  /* Touch targets and safe areas */
+  a, button { -webkit-tap-highlight-color: transparent; } /* Reduce tap flash [attached_file:1] */
+  body { padding-bottom: env(safe-area-inset-bottom); } /* Notch-safe [attached_file:1] }
+
+  /* Motion reduction for mobile performance */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  } /* Smoother on low-end devices [attached_file:1] */
+}
+
+/* ========= Mid breakpoints tuning (small tablets/large phones) ========= */
+@media (min-width: 577px) and (max-width: 768px) {
+  html { font-size: 58%; } /* Gradual scale up [attached_file:1] */
+  header { padding: 1.2rem 6%; } /* Breathing room [attached_file:1] */
+  .section { padding: 4.8rem 6% 5rem; } /* Consistent spacing [attached_file:1] }
+  .about-image img { width: 46vw; max-width: 300px; } /* Balance text-image [attached_file:1] */
+  .download-btn { font-size: 1.55rem; padding: 1.2rem 2.6rem; } /* CTA prominence [attached_file:1] */
+}
