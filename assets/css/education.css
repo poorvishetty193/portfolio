@@ -19,24 +19,28 @@ header.site-header{
 .logo{ font-size:3rem; color:#ff69b4; font-weight:800; transition:.3s; }
 .logo:hover{ transform:scale(1.1); }
 
-.nav{ display:flex; align-items:center; }
-.nav a{ font-size:1.8rem; color:#fff; margin-left:4rem; font-weight:500; transition:.3s; border-bottom:3px solid transparent; }
-.nav a:hover,.nav a.active{ color:#ff69b4; border-bottom:3px solid #ff69b4; }
+/* ===== NAVIGATION ===== */
+.nav { display: flex; align-items: center; }
+.nav a { font-size: 1.8rem; color: #fff; margin-left: 4rem; font-weight: 500; transition: 0.3s ease; border-bottom: 3px solid transparent; }
+.nav a:hover, .nav a.active { color: #ff69b4; border-bottom: 3px solid #ff69b4; }
 
-.nav-toggle{ display:none; background:none; color:#ff69b4; font-size:2.6rem; cursor:pointer; border:none; transition:.3s; }
-.nav-toggle:hover{ transform:scale(1.1); color:#fff; }
+/* ===== HAMBURGER ===== */
+.nav-toggle { display: none; background: none; color: #ff69b4; font-size: 2.5rem; cursor: pointer; border: none; transition: 0.3s ease; }
+.nav-toggle:hover { transform: scale(1.1); color: #fff; }
 
-@media (max-width:995px){
-  .nav-toggle{ display:block; z-index:110; }
-  .nav{
-    position:absolute; top:100%; right:-100%; width:60%;
-    background:#161616; border-left:2px solid #ff69b4; border-bottom:2px solid #ff69b4; border-radius:1rem 0 0 1rem;
-    flex-direction:column; align-items:center; padding:3rem 2rem; transition:right .4s ease;
+/* ===== RESPONSIVE NAV ===== */
+@media (max-width: 995px) {
+  .nav-toggle { display: block; z-index: 110; }
+  .nav {
+    position: absolute; top: 100%; right: -100%; width: 60%;
+    background-color: #161616; border-left: 2px solid #ff69b4; border-bottom: 2px solid #ff69b4; border-radius: 1rem 0 0 1rem;
+    flex-direction: column; align-items: center; padding: 3rem 2rem; transition: right 0.4s ease;
   }
-  .nav.active{ right:0; }
-  .nav a{ display:block; font-size:2rem; margin:2rem 0; color:#fff; border:none; }
-  .nav a:hover,.nav a.active{ color:#ff69b4; text-shadow:0 0 10px #ff69b4; }
+  .nav.active { right: 0; }
+  .nav a { display: block; font-size: 2rem; margin: 2rem 0; color: #fff; }
+  .nav a:hover, .nav a.active { color: #ff69b4; border: none; text-shadow: 0 0 10px #ff69b4; }
 }
+
 
 /* ===== SECTION SPACING ===== */
 .section{ margin-top:0; padding: calc(var(--header-h) + 1rem) 9% 5rem; }
@@ -158,3 +162,128 @@ header.site-header{
 .edu-timeline{
   max-width: 1180px;   /* was 980px */
 }
+
+
+/* ============ Mobile-first fixes (phones) ============ */
+@media (max-width: 576px) {
+  /* Header height + global spacing */
+  :root { --header-h: 7.5rem; } /* header is visually taller on phones [attached_file:1] */
+  header.site-header { padding: 0.9rem 5%; } /* tighter gutters, keeps touch targets [attached_file:1] */
+  .logo { font-size: 2.4rem; } /* avoid title wrapping [attached_file:1] */
+
+  /* Safe top padding so titles never sit under header */
+  .section { padding: calc(var(--header-h) + 1.6rem) 5% 4.8rem; } /* replaces earlier padding [attached_file:1] */
+  .section-title, .section h1 { font-size: 2.8rem; margin: 0.4rem 0 2.2rem; } /* readable but compact [attached_file:1] */
+
+  /* Anchor jump safety for any in-page links */
+  [id] { scroll-margin-top: calc(var(--header-h) + 1.2rem); } /* prevents hidden headings [attached_file:1] */
+
+  /* Navigation drawer: use full width for stability on very small screens */
+  .nav {
+    width: 100%;
+    right: -100%;
+    padding: 2rem 1.6rem;
+    border-left: 0;
+    border-bottom: 2px solid #ff69b4;
+    border-radius: 0 0 1rem 1rem;
+    background: #161616;
+  } /* consistent slide-down panel [attached_file:1] */
+  .nav a { font-size: 1.8rem; margin: 1.2rem 0; } /* comfortable rhythm [attached_file:1] */
+  .nav-toggle { font-size: 3rem; } /* larger tap target [attached_file:1] */
+
+  /* Timeline rail and items */
+  .edu-timeline { max-width: 100%; padding: 0 0 0.6rem; } /* use full phone width [attached_file:1] */
+  .edu-timeline::before { left: 14px; } /* pull rail inward to match small gutters [attached_file:1] }*/
+
+  .edu-item {
+    grid-template-columns: 1fr; /* single column stack [attached_file:1] */
+    gap: 1rem;
+    padding: 1.2rem 0 2rem;
+  }
+
+  .edu-badge {
+    margin-left: 30px; /* aligns with rail at 14px + marker [attached_file:1] */
+    font-size: 1.3rem;
+    padding: .55rem 1.1rem;
+  }
+  .edu-badge::before { left: -28px; width: 12px; height: 12px; } /* slightly smaller marker [attached_file:1] */
+
+  .edu-card {
+    padding: 1.4rem 1.6rem;
+    border-radius: 1rem;
+  } /* compact card [attached_file:1] */
+  .edu-title { font-size: 1.9rem; } /* scale titles [attached_file:1] */
+  .edu-meta { font-size: 1.25rem; } /* scale subtext [attached_file:1] */
+
+  .edu-points { gap: .5rem; margin-bottom: 1rem; } /* tighter bullets [attached_file:1] */
+  .edu-points li { font-size: 1.4rem; line-height: 1.65; padding-left: 1.4rem; } /* reduce indent [attached_file:1] }
+  .edu-points li::before { top: .65rem; width: 5px; height: 5px; } /* smaller bullets [attached_file:1] */
+
+  .edu-tags { gap: .5rem; }
+  .edu-tags span { font-size: 1.15rem; padding: .3rem .8rem; } /* fit long tag lines [attached_file:1] */
+
+  .edu-cta {
+    margin-left: 0; /* no horizontal offset in single-column layout [attached_file:1] */
+    font-size: 1.3rem;
+  }
+
+  /* Footer compaction */
+  .site-footer { padding: 1.6rem 5%; font-size: 1.3rem; margin-top: 3.6rem; } /* balanced end spacing [attached_file:1] */
+
+  /* Touch polish and safe area */
+  a, button { -webkit-tap-highlight-color: transparent; } /* reduce tap flash [attached_file:1] */
+  body { padding-bottom: env(safe-area-inset-bottom); } /* bottom notch safety [attached_file:1] */
+
+  /* Motion reduction for low-end devices */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  } /* performance-friendly [attached_file:1] */
+}
+
+/* ============ Small tablets / large phones ============ */
+@media (min-width: 577px) and (max-width: 768px) {
+  html { font-size: 58%; } /* gradual type scale [attached_file:1] */
+  header.site-header { padding: 1rem 6%; } /* consistent gutters [attached_file:1] */
+  .section { padding: calc(var(--header-h) + 1.4rem) 6% 5rem; } /* safe header clearance [attached_file:1] }
+  .section-title, .section h1 { font-size: 3.2rem; margin-bottom: 2.6rem; } /* balanced heading [attached_file:1] */
+  .edu-timeline { max-width: 640px; } /* centered column width [attached_file:1] */
+}
+
+@media (max-width: 576px) {
+  .edu-timeline::before {
+    left: 12px; /* rail closer to edge so it won't sit under the card */
+  }
+  .edu-item {
+    grid-template-columns: 1fr;
+    padding-left: 0; /* no grid column offset on phones */
+  }
+  .edu-badge {
+    margin-left: 28px; /* aligns badge with the rail position */
+  }
+  .edu-badge::before {
+    left: -26px; /* marker centered on the rail after moving it */
+    width: 12px;
+    height: 12px;
+  }
+  .edu-card {
+    padding-left: 2.8rem; /* creates space so the card never overlaps the rail/marker */
+  }
+}
+
+@media (max-width: 576px) {
+  .edu-card {
+    overflow: hidden;            /* hides inner glow crossing the rail */
+    border-radius: 1rem;         /* soften edge after overflow hidden */
+    margin-left: 0;              /* ensure no negative offset */
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .edu-timeline::before { left: 16px; }     /* centered visually for this width */
+  .edu-badge { margin-left: 32px; }         /* keeps badge and rail aligned */
+  .edu-badge::before { left: -28px; }       /* marker stays on the rail */
+  .edu-card { padding-left: 2.2rem; }       /* persistent safe gap from rail */
+}
+.edu-timeline { position: relative; z-index: 0; }
+.edu-timeline::before { z-index: 0; }
+.edu-item, .edu-card, .edu-badge { position: relative; z-index: 1; } /* content always above the rail */
+

@@ -341,3 +341,183 @@ span {
 }
 
 
+/* Typing row: stays one line and scales fluidly */
+.typing-text{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .6rem;
+  font-size: clamp(1.6rem, 5.2vw, 3rem);
+  line-height: 1.15;
+  white-space: nowrap;          /* prevent wrap */
+  overflow: hidden;             /* guard against cursor spill */
+}
+
+/* The static prefix (optional) */
+.typing-text .prefix{ opacity: .9; }
+
+/* The animated word (content comes from data-text) */
+.typing-text .word{
+  position: relative;
+  display: inline-block;
+  color: var(--pink, #ff69b4);
+  /* typing via clip-path – doesn’t reflow layout */
+  --w: 0%;
+  clip-path: inset(0 calc(100% - var(--w)) 0 0);
+  will-change: clip-path;
+  animation: typeWidth 3.4s steps(22) infinite;
+}
+
+/* Provide text via pseudo for clean animation text flow */
+.typing-text .word::before{
+  content: attr(data-text);
+}
+
+/* Blinking cursor */
+.typing-text .cursor{
+  display:inline-block; width:2px; height:1em;
+  background: var(--pink, #ff69b4);
+  margin-left: 6px;
+  transform: translateY(2px);
+  animation: blink .7s steps(1) infinite;
+}
+
+/* Animations */
+@keyframes typeWidth{
+  0%   { --w: 0%; }
+  45%  { --w: 100%; }   /* typing */
+  55%  { --w: 100%; }   /* small hold fully typed */
+  100% { --w: 0%; }     /* erase */
+}
+@keyframes blink{ 50% { opacity: 0; } }
+
+/* Small screens: slightly tighter */
+@media (max-width: 420px){
+  .typing-text{ gap: .5rem; }
+}
+/* ==== Fixed header + safe spacing ==== */
+:root{ --header-h: 6.4rem; --pink:#ff69b4; --panel:#161616; }
+
+header{
+  position: fixed; top: 0; left: 0; width: 100%;
+  padding: 1.2rem 9%;
+  background: rgba(0,0,0,.85);           /* match other pages */
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 100; backdrop-filter: blur(8px);
+}
+
+.logo{ font-size: 3rem; color: var(--pink); font-weight: 800; transition: .3s; }
+.logo:hover{ transform: scale(1.06); }
+
+/* Desktop nav (no underline) */
+.nav{ display: flex; align-items: center; }
+.nav a{
+  font-size: 1.8rem; color: #fff; margin-left: 4rem; font-weight: 500;
+  transition: .25s; border-bottom: none; text-decoration: none;
+}
+.nav a:hover, .nav a.active{
+  color: var(--pink);
+  text-shadow: 0 0 10px var(--pink);
+  border-bottom: none;
+}
+
+/* Hamburger button */
+.nav-toggle{
+  display: none; background: none; color: var(--pink);
+  font-size: 2.8rem; cursor: pointer; border: none; transition: .25s;
+}
+.nav-toggle:hover{ transform: scale(1.06); color: #fff; }
+
+/* Sections respect fixed header */
+section, .section{
+  padding: calc(var(--header-h) + 1.2rem) 9% 6.4rem; /* bottom extra for fixed footer */
+}
+[id]{ scroll-margin-top: calc(var(--header-h) + 1rem); } /* anchor safety */
+
+/* Fixed footer spacing (your footer is fixed) */
+.site-footer{ position: fixed; left: 0; bottom: 0; width: 100%; z-index: 50; }
+body{ padding-bottom: 6.4rem; } /* keep content clear of fixed footer */
+
+/* ==== Mobile drawer (consistent across pages) ==== */
+@media (max-width: 995px){
+  :root{ --header-h: 7.4rem; }               /* header is visually taller on phones */
+  header{ padding: .9rem 5%; }
+
+  .nav-toggle{ display: block; z-index: 110; }
+
+  .nav{
+    position: absolute; top: 100%;
+    right: -100%;                             /* hidden by default */
+    width: 86%;                               /* same width across pages */
+    background: var(--panel);
+    border-left: 1px solid var(--pink);
+    border-bottom: 1px solid var(--pink);
+    border-radius: 1rem 0 1rem 1rem;
+    display: flex; flex-direction: column; align-items: flex-start;
+    padding: 1.6rem 1.6rem 2rem; gap: .4rem;
+    transition: right .35s ease;
+  }
+  .nav.active{ right: 7%; }                   /* aligns with header gutters */
+
+  .nav a{
+    display: block; width: 100%;
+    padding: .9rem 1rem; margin: .2rem 0;
+    font-size: 1.8rem; color: #fff; border-radius: .6rem;
+  }
+  .nav a:hover, .nav a.active{
+    background: #1d1d1d; color: var(--pink);
+    text-shadow: 0 0 10px var(--pink);
+  }
+
+  /* Tighter section spacing on phones with fixed header/footer */
+  section, .section{
+    padding: calc(var(--header-h) + 1.0rem) 5% 6.8rem;
+  }
+}
+
+/* ==== Small tablets / large phones refinement ==== */
+@media (min-width: 577px) and (max-width: 768px){
+  header{ padding: 1rem 6%; }
+  section, .section{ padding: calc(var(--header-h) + 1.1rem) 6% 6.6rem; }
+}
+
+/* ==== Accessibility polish ==== */
+.nav a, .nav-toggle{ -webkit-tap-highlight-color: transparent; }
+
+@media (max-width: 576px){
+  .cta, .buttons{ margin-bottom: 0 !important; padding-bottom: 0 !important; }
+}
+
+/* Mobile-only spacing fixes */
+@media (max-width: 576px){
+
+  /* Remove space above the image */
+  .home{ padding-top:10 }            /* section-level top gap */
+  .home-img, .home-img img{
+    margin-top: 0 !important;
+  }
+  /* If the image sits inside a wrapper with margin/padding: */
+  .home .home-content,
+  .home .home-img{
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Tighten vertical gap between typing row and paragraph */
+  .typing-text{ margin-bottom: .4rem !important; }
+  .home-content p{ margin-top: .2rem !important; }
+
+  /* Remove excess space below the Contact me button */
+  .btn{ margin-bottom: 0 !important; }
+  .social-icons{ margin-bottom: 0 !important; }
+
+  /* If a container adds bottom padding in mobile, neutralize it here */
+  .home,
+  section.home,
+  .home .container,
+  .home .wrapper{
+    padding-bottom: 2rem !important;   /* still leaves a little breathing room */
+  }
+
+  /* Ensure fixed footer doesn’t force extra scroll gap */
+  body{ padding-bottom: 6.4rem; }       /* keep content clear of fixed footer */
+}
